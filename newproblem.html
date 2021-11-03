@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Problem Logger</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+     crossorigin="anonymous">
+  </head>
+  <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script>
+
+      function test(id) {
+        $(document).ready(function() {
+
+          var output = $("#opt2").val();
+          console.log(output);
+            
+          $("#problem_desc").val(output);
+          $("#notes").val("Told caller to go to network settings and click forget network. Then proceed to enter network credentials again ");
+
+        })
+      }
+
+      function getDate() {
+
+        // author: Jordan
+        // gets current date with custom format: MMM D YYYY, HH:MM
+
+        $(document).ready(function() {
+
+          const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+          var year = new Date().getFullYear().toString();
+          var month = months[new Date().getMonth()];
+          var day = new Date().getDate().toString();
+          var hour = new Date().getHours().toString();
+          var mins = new Date().getMinutes().toString();
+
+          if (hour < 10) // format time
+            hour = '0' + hour;
+          if (mins < 10) 
+            mins = '0' + mins;
+
+          var today = month.substring(0, 3) + " " + day + " " + year + ", " + hour + ":" + mins;
+          $("#call-date").val(today);
+        })
+
+      }
+
+      function fill(destination, value) { 
+        
+        // author: Jordan
+        // fills text field with value into input destination
+
+        $(document).ready(function() {
+          $(destination).val(value);
+        })
+      }
+
+      getDate();
+
+    </script>
+
+
+<div class="container"> <!-- container for button -->
+  <div class="row">
+    <div class="col-sm">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addnewprob">
+        Launch demo modal
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="addnewprob" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <!-- modal container -->
+  <div class="modal-dialog modal-xl"  >
+    <div class="modal-content">
+      <div class="modal-header bg-warning">
+        <h5 class="modal-title" id="exampleModalLabel">Alice</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+        <div class="parent-container d-flex  w-100 bg-light" id="parent">
+          <div class="container w-50 " id="inputproblem" >
+
+    
+              <div class="row"> <!-- case number field -->
+                <div class="col-sm ">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">Case Number</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" value="57" disabled >
+                  </div>
+                </div>
+              </div>
+
+              <div class="row"> <!-- case status field -->
+                <div class="col-sm ">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">Case Status</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" value="Open" disabled >
+                  </div>
+                </div>
+              </div>
+
+              <div class="row"> <!-- call date field -->
+                <div class="col-sm ">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">Call Date</span>
+                    </div>
+                    <input id="call-date" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" value="" disabled>
+                  </div>
+                </div>
+              </div>
+    
+              <div class="row"> <!-- full name field -->
+                <div class="col-sm ">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Full Name</span>
+                    </div>
+                    <input type="text" aria-label="First name" class="form-control">
+                    <input type="text" aria-label="Last name" class="form-control">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row"> <!-- extension no. field -->
+                <div class="col-sm ">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">Extension Number</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
+                </div>
+              </div>
+
+              <div class="input-group mb-3 "> <!-- software type field -->
+                <div class="input-group-prepend">
+                  <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Software Type</button>
+                  <div class="dropdown-menu " >
+                    <button class="dropdown-item" type="button" value="Windows" onclick="fill('#software-type',this.value)">Windows</button>                    
+                    <button class="dropdown-item" type="button" value="macOS" onclick="fill('#software-type',this.value)">macOS</button>               
+                    <button class="dropdown-item" type="button" value="Linux" onclick="fill('#software-type',this.value)">Linux</button>                  
+                  </div>
+                </div>
+                <input type="text" class="form-control " value="" aria-label="Text input with dropdown button" id="software-type" aria-describedby="default">
+              </div>
+    
+              <div class="input-group mb-3 "> <!-- hardware type field -->
+                <div class="input-group-prepend">
+                  <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hardware Type</button>
+                  <div class="dropdown-menu " >
+                    <button class="dropdown-item" type="button" value="Asus Laptop" onclick="fill('#hardware-type',this.value)">Asus Laptop</button>                    
+                    <button class="dropdown-item" type="button" value="HP Laptop" onclick="fill('#hardware-type',this.value)">HP Laptop</button>               
+                    <button class="dropdown-item" type="button" value="Macbook" onclick="fill('#hardware-type',this.value)">Macbook</button>                  
+                  </div>
+                </div>
+                <input type="text" class="form-control " value="" aria-label="Text input with dropdown button" id="hardware-type" aria-describedby="default">
+              </div>
+    
+              <div class="input-group mb-3 "> <!-- problem type field -->
+                <div class="input-group-prepend">
+                  <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Problem Type</button>
+                  <div class="dropdown-menu " >
+                    <button class="dropdown-item" type="button" value="Software" onclick="fill('#problem-type',this.value)">Software</button>                    
+                    <button class="dropdown-item" type="button" value="Hardware" onclick="fill('#problem-type',this.value)">Hardware</button>               
+                    <button class="dropdown-item" type="button" value="Network" onclick="fill('#problem-type',this.value)">Network</button>                  
+                  </div>
+                </div>
+                <input type="text" class="form-control " value="" aria-label="Text input with dropdown button" id="problem-type" aria-describedby="default">
+              </div>
+    
+              <div class="row">
+                <div class="col-sm">
+                  <button type="button" class="btn btn-primary">Assign Specialist</button>  
+                </div>
+              </div>
+    
+            </div>
+    
+    
+          <div class="container" id="notes_container" >
+            <div class="row ">
+              <div class="col-sm ">
+                <div class="input-group mb-3 ">
+                  <div class="input-group-prepend">
+                    <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Problem Description</button>
+                    <div class="dropdown-menu " >
+                      <!--<button class="dropdown-item" type="button" id="opt1" value="Printer not showing" onclick="test(this.id)">Printer not showing</button>-->
+                      <button class="dropdown-item" type="button" id="opt2" value="Laptop not connecting to Wi-Fi" onclick="test(this.id)">Laptop not connecting to Wi-Fi</button>
+                      <!--<button class="dropdown-item" type="button" id="opt3" value="VPN log on not working" onclick="test(this.id)">VPN log on not working</button>-->
+                    </div>
+                  </div>
+                
+                  <input type="text" class="form-control "  aria-label="Text input with dropdown button" id="problem_desc" aria-describedby="default">
+                </div>
+              </div>   
+            </div>
+    
+
+            <div class="row">
+              <div class="col-sm">
+    
+     
+                <textarea class="form-control" id="notes"  rows="5"></textarea>
+    
+              </div>
+    
+            </div>
+    
+            <div class="row">
+              <div class="col-sm d-flex m-3">
+     
+                <button type="button" class="btn btn-primary m-3 " >Resolve</button>  
+                <button type="button" class="btn btn-primary m-3" >Submit</button>  <!-- change to sumbit type-->
+                <div class="custom-control custom-checkbox m-4">
+                  <input type="checkbox" class="custom-control-input" id="customCheck1">
+                  <label class="custom-control-label" for="customCheck1">Add to previous fixes</label>
+                </div>
+
+              </div>
+            </div>
+          </div>
+    
+        </div>
+        </div>
+    
+      </div>
+
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+  </body>
+</html>

@@ -154,6 +154,17 @@
                 </div>
               </div>
 
+              <div class="row"> <!-- serial no. field -->
+                <div class="col-sm ">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">Serial Number</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
+                </div>
+              </div>
+
               <div class="input-group mb-3 "> <!-- software type field -->
                 <div class="input-group-prepend">
                   <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Software Type</button>
@@ -170,12 +181,24 @@
                 <div class="input-group-prepend">
                   <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hardware Type</button>
                   <div class="dropdown-menu " >
-                    <button class="dropdown-item" type="button" value="Asus Laptop" onclick="fill('#hardware-type',this.value)">Asus Laptop</button>                    
-                    <button class="dropdown-item" type="button" value="HP Laptop" onclick="fill('#hardware-type',this.value)">HP Laptop</button>               
-                    <button class="dropdown-item" type="button" value="Macbook" onclick="fill('#hardware-type',this.value)">Macbook</button>                  
+                    <button class="dropdown-item" type="button" value="Laptop" onclick="fill('#hardware-type',this.value)">Laptop</button>                    
+                    <button class="dropdown-item" type="button" value="PC" onclick="fill('#hardware-type',this.value)">PC</button>               
+                    <button class="dropdown-item" type="button" value="Tablet" onclick="fill('#hardware-type',this.value)">Tablet</button>                  
                   </div>
                 </div>
                 <input type="text" class="form-control " value="" aria-label="Text input with dropdown button" id="hardware-type" aria-describedby="default">
+              </div>
+
+              <div class="input-group mb-3 "> <!-- hardware make field -->
+                <div class="input-group-prepend">
+                  <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hardware Make</button>
+                  <div class="dropdown-menu " >
+                    <button class="dropdown-item" type="button" value="Asus" onclick="fill('#hardware-make',this.value)">Asus</button>                    
+                    <button class="dropdown-item" type="button" value="HP" onclick="fill('#hardware-make',this.value)">HP</button>               
+                    <button class="dropdown-item" type="button" value="Apple" onclick="fill('#hardware-make',this.value)">Apple</button>                  
+                  </div>
+                </div>
+                <input type="text" class="form-control " value="" aria-label="Text input with dropdown button" id="hardware-make" aria-describedby="default">
               </div>
     
               <div class="input-group mb-3 "> <!-- problem type field -->

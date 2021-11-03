@@ -1,0 +1,51 @@
+
+.top {
+    background-color: white;
+}
+
+.bottom {
+    background-color:#ebebeb;
+}
+
+.dataTable {
+    border-collapse: collapse;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    background-color: white;
+}
+
+.dataTable thead tr {
+    background-color: #ff781f;
+    color: #ffffff;
+    text-align: left;
+}
+
+.scrollTable {
+    position: relative;
+    height:50rem;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.scroll-y {
+    background-color: #ff781f;
+    display: block;
+}
+
+.tableOptions button{
+    margin-left: 0.5rem;
+}
+
+.navbar-custom{
+    background-color: white;
+}
+
+#filterHeader {
+    padding-top: 3rem;
+}
+
+.problemInfo {
+
+}

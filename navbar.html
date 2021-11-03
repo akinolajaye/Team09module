@@ -381,98 +381,120 @@
                         <div class="container-fluid">
                            <div class="parent-container d-flex  w-100 bg-light" id="parent">
                               <div class="container w-50 " id="inputproblem" >
-                                 <div class="row">
-                                    <!-- case number field -->
+                                 <div class="row"> <!-- case number field -->
                                     <div class="col-sm ">
-                                       <div class="input-group mb-3">
-                                          <div class="input-group-prepend">
-                                             <span class="input-group-text" id="basic-addon1">Case Number</span>
-                                          </div>
-                                          <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" value="57" disabled >
-                                       </div>
+                                      <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text" id="basic-addon1">Case Number</span>
+                                        </div>
+                                        <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" value="57" disabled >
+                                      </div>
                                     </div>
-                                 </div>
-                                 <div class="row">
-                                    <!-- case status field -->
+                                  </div>
+                    
+                                  <div class="row"> <!-- case status field -->
                                     <div class="col-sm ">
-                                       <div class="input-group mb-3">
-                                          <div class="input-group-prepend">
-                                             <span class="input-group-text" id="basic-addon1">Case Status</span>
-                                          </div>
-                                          <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" value="Open" disabled >
-                                       </div>
+                                      <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text" id="basic-addon1">Case Status</span>
+                                        </div>
+                                        <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" value="Open" disabled >
+                                      </div>
                                     </div>
-                                 </div>
-                                 <div class="row">
-                                    <!-- call date field -->
+                                  </div>
+                    
+                                  <div class="row"> <!-- call date field -->
                                     <div class="col-sm ">
-                                       <div class="input-group mb-3">
-                                          <div class="input-group-prepend">
-                                             <span class="input-group-text" id="basic-addon1">Call Date</span>
-                                          </div>
-                                          <input id="call-date" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" value="" disabled>
-                                       </div>
+                                      <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text" id="basic-addon1">Call Date</span>
+                                        </div>
+                                        <input id="call-date" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" value="" disabled>
+                                      </div>
                                     </div>
-                                 </div>
-                                 <div class="row">
-                                    <!-- full name field -->
+                                  </div>
+                        
+                                  <div class="row"> <!-- full name field -->
                                     <div class="col-sm ">
-                                       <div class="input-group mb-3">
-                                          <div class="input-group-prepend">
-                                             <span class="input-group-text">Full Name</span>
-                                          </div>
-                                          <input type="text" aria-label="First name" class="form-control">
-                                          <input type="text" aria-label="Last name" class="form-control">
-                                       </div>
+                                      <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text">Full Name</span>
+                                        </div>
+                                        <input type="text" aria-label="First name" class="form-control">
+                                        <input type="text" aria-label="Last name" class="form-control">
+                                      </div>
                                     </div>
-                                 </div>
-                                 <div class="row">
-                                    <!-- extension no. field -->
+                                  </div>
+                    
+                                  <div class="row"> <!-- extension no. field -->
                                     <div class="col-sm ">
-                                       <div class="input-group mb-3">
-                                          <div class="input-group-prepend">
-                                             <span class="input-group-text" id="basic-addon1">Extension Number</span>
-                                          </div>
-                                          <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
-                                       </div>
+                                      <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text" id="basic-addon1">Extension Number</span>
+                                        </div>
+                                        <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                      </div>
                                     </div>
-                                 </div>
-                                 <div class="input-group mb-3 ">
-                                    <!-- software type field -->
+                                  </div>
+                    
+                                  <div class="row"> <!-- serial no. field -->
+                                    <div class="col-sm ">
+                                      <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text" id="basic-addon1">Serial Number</span>
+                                        </div>
+                                        <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                      </div>
+                                    </div>
+                                  </div>
+                    
+                                  <div class="input-group mb-3 "> <!-- software type field -->
                                     <div class="input-group-prepend">
-                                       <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Software Type</button>
-                                       <div class="dropdown-menu " >
-                                          <button class="dropdown-item" type="button" value="Windows" onclick="fill('#software-type',this.value)">Windows</button>                    
-                                          <button class="dropdown-item" type="button" value="macOS" onclick="fill('#software-type',this.value)">macOS</button>               
-                                          <button class="dropdown-item" type="button" value="Linux" onclick="fill('#software-type',this.value)">Linux</button>                  
-                                       </div>
+                                      <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Software Type</button>
+                                      <div class="dropdown-menu " >
+                                        <button class="dropdown-item" type="button" value="Windows" onclick="fill('#software-type',this.value)">Windows</button>                    
+                                        <button class="dropdown-item" type="button" value="macOS" onclick="fill('#software-type',this.value)">macOS</button>               
+                                        <button class="dropdown-item" type="button" value="Linux" onclick="fill('#software-type',this.value)">Linux</button>                  
+                                      </div>
                                     </div>
                                     <input type="text" class="form-control " value="" aria-label="Text input with dropdown button" id="software-type" aria-describedby="default">
-                                 </div>
-                                 <div class="input-group mb-3 ">
-                                    <!-- hardware type field -->
+                                  </div>
+                        
+                                  <div class="input-group mb-3 "> <!-- hardware type field -->
                                     <div class="input-group-prepend">
-                                       <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hardware Type</button>
-                                       <div class="dropdown-menu " >
-                                          <button class="dropdown-item" type="button" value="Asus Laptop" onclick="fill('#hardware-type',this.value)">Asus Laptop</button>                    
-                                          <button class="dropdown-item" type="button" value="HP Laptop" onclick="fill('#hardware-type',this.value)">HP Laptop</button>               
-                                          <button class="dropdown-item" type="button" value="Macbook" onclick="fill('#hardware-type',this.value)">Macbook</button>                  
-                                       </div>
+                                      <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hardware Type</button>
+                                      <div class="dropdown-menu " >
+                                        <button class="dropdown-item" type="button" value="Laptop" onclick="fill('#hardware-type',this.value)">Laptop</button>                    
+                                        <button class="dropdown-item" type="button" value="PC" onclick="fill('#hardware-type',this.value)">PC</button>               
+                                        <button class="dropdown-item" type="button" value="Tablet" onclick="fill('#hardware-type',this.value)">Tablet</button>                  
+                                      </div>
                                     </div>
                                     <input type="text" class="form-control " value="" aria-label="Text input with dropdown button" id="hardware-type" aria-describedby="default">
-                                 </div>
-                                 <div class="input-group mb-3 ">
-                                    <!-- problem type field -->
+                                  </div>
+                    
+                                  <div class="input-group mb-3 "> <!-- hardware make field -->
                                     <div class="input-group-prepend">
-                                       <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Problem Type</button>
-                                       <div class="dropdown-menu " >
-                                          <button class="dropdown-item" type="button" value="Software" onclick="fill('#problem-type',this.value)">Software</button>                    
-                                          <button class="dropdown-item" type="button" value="Hardware" onclick="fill('#problem-type',this.value)">Hardware</button>               
-                                          <button class="dropdown-item" type="button" value="Network" onclick="fill('#problem-type',this.value)">Network</button>                  
-                                       </div>
+                                      <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hardware Make</button>
+                                      <div class="dropdown-menu " >
+                                        <button class="dropdown-item" type="button" value="Asus" onclick="fill('#hardware-make',this.value)">Asus</button>                    
+                                        <button class="dropdown-item" type="button" value="HP" onclick="fill('#hardware-make',this.value)">HP</button>               
+                                        <button class="dropdown-item" type="button" value="Apple" onclick="fill('#hardware-make',this.value)">Apple</button>                  
+                                      </div>
+                                    </div>
+                                    <input type="text" class="form-control " value="" aria-label="Text input with dropdown button" id="hardware-make" aria-describedby="default">
+                                  </div>
+                        
+                                  <div class="input-group mb-3 "> <!-- problem type field -->
+                                    <div class="input-group-prepend">
+                                      <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Problem Type</button>
+                                      <div class="dropdown-menu " >
+                                        <button class="dropdown-item" type="button" value="Software" onclick="fill('#problem-type',this.value)">Software</button>                    
+                                        <button class="dropdown-item" type="button" value="Hardware" onclick="fill('#problem-type',this.value)">Hardware</button>               
+                                        <button class="dropdown-item" type="button" value="Network" onclick="fill('#problem-type',this.value)">Network</button>                  
+                                      </div>
                                     </div>
                                     <input type="text" class="form-control " value="" aria-label="Text input with dropdown button" id="problem-type" aria-describedby="default">
-                                 </div>
+                                  </div>
                                  <div class="row">
                                     <div class="col-sm">
                                        <button type="button" class="btn btn-primary">Assign Specialist</button>  

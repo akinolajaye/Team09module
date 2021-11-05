@@ -1,0 +1,78 @@
+PROBLEM ID:	325
+CALL: 		03/11/2016 , 09:00
+CALLER:		George Formby 	FROM	Cleaning Dept., ext 23456
+SOFTWARE:	Windows 8
+HARDWARE:	HP Laptop
+PROBLEM DESC:	Laptop running very slowly
+===================================================================================================
+NOTES:		
+	Initial suggestion to re-boot
+
+	03/11/2016, 09:30
+		Caller phone back to say rebooting didn't work. Clara assigned to problem.
+	
+	05/11/2016, 16:00
+		Clara called to say Windows CleanUp used to tidy up disc space and delete unused temporary files. User can access Windows more easily and speedily
+===================================================================================================
+CLOSED
+
+###################################################################################################
+
+PROBLEM ID:	326
+CALL: 		03/11/2016 , 09:15
+CALLER:		Hillary C.	FROM	Legal Dept., ext 22999
+SOFTWARE:	Windows 10, Outlook 365
+HARDWARE:	Asus Laptop
+PROBLEM DESC:	Email may have been hacked when using an external 
+server
+===================================================================================================
+NOTES:		
+	Passed straight to Clara
+
+	04/11/2016, 09:00
+		Clara called. Anti-virus software checks carried out, etc. Computer appears to be uninfected, but can’t tell if any data has been stolen. User given an extensive lecture on the dangers of using the wrong email server
+===================================================================================================
+CLOSED
+
+###################################################################################################
+
+PROBLEM ID:	327
+CALL: 		04/11/2016 , 09:20
+CALLER:		Ed Balls	FROM	Publicity, ext 28200
+SOFTWARE:	All media software
+HARDWARE:	CD Rom Reader on Sony Vaio VPCX13C7E Desktop, No. CNU327BHP7
+PROBLEM DESC:	Tendency to eject CDs early
+server
+===================================================================================================
+NOTES:		
+	Passed straight to Clara
+
+	04/11/2016, 16:00
+		Bert called to add that though the user said the CD was not strictly necessary he was concerned it could lead him on a right “song and dance” if he was ejected too soon. Therefore new CD reader ordered
+
+	15/11/2016, 10:05
+		Bert called to say new CD reader now installed. As it was a new series CD reader, the problem will not occur again
+
+===================================================================================================
+CLOSED
+
+###################################################################################################
+
+PROBLEM ID:	328
+CALL: 		04/11/2016 , 04:15
+CALLER:		D.Trump		FROM	CEO's office, ext 20171
+SOFTWARE:	Network Firewall
+HARDWARE:	-
+PROBLEM DESC:	Concerned about the strength of the firewall. In particular wants to keep out illegal messages from Mexico
+===================================================================================================
+NOTES:		
+	Passed straight to Clara
+
+	05/11/2016, 09:00
+		Clara called. Passed to Nick as it was a network problem
+	15/11/2016, 10:05
+		Nick called. Stronger firewall researched and costed and passed to Mr. Trump. Costs are high so probably will never be implemented.
+===================================================================================================
+CLOSED
+
+###################################################################################################

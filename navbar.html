@@ -99,6 +99,7 @@
                var caseNumber = $('#case-number').val(); // store input values
                var name = $('#first-name').val();
                var caseStatus = $('#case-status').val();
+               caseStatus="Closed"
 
                var today = new Date(); // date formatting
                var dd = today.getDate();
@@ -620,7 +621,7 @@
                                  </div>
                                  <div class="row">
                                     <div class="col-sm d-flex m-3">
-                                       <button type="button" class="btn btn-primary m-3" onclick="submit()">Submit</button>
+                                       <button type="button" class="btn btn-primary m-3" onclick="submit()">Resolve</button>
                                        <!-- change to sumbit type-->
                                        <div class="custom-control custom-checkbox m-4">
                                           <input type="checkbox" class="custom-control-input" id="customCheck1">

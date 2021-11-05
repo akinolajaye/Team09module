@@ -87,13 +87,36 @@
            })
          }
 
-         function closeModal() {
+         function submit() {
 
             // author: Jordan
-            // closes modal and submits form data
+            // closes modal and adds problem to table
 
             $(document).ready(function() {
-               $('#addnewprob').modal('hide');
+
+               $('#addnewprob').modal('hide');  // close modal
+
+               var caseNumber = $('#case-number').val(); // store input values
+               var name = $('#first-name').val();
+               var caseStatus = $('#case-status').val();
+
+               var today = new Date(); // date formatting
+               var dd = today.getDate();
+               var mm = today.getMonth()+1;
+               var yyyy = today.getFullYear();
+               if (dd < 10)
+                  dd = '0' + dd;
+               if (mm < 10)
+                  mm = '0' + mm;
+               today = dd + '/' + mm + '/' +yyyy;
+
+               var newRow = "<tr><td>" + caseNumber + // create row from inputs
+                           "</td><td>" + name +
+                           "</td><td>" + caseStatus +
+                           "</td><td>" + today +
+                           "</td><td><i class='bi bi-arrows-fullscreen'></i></td></tr>";
+
+               $('#myTable').append(newRow);
             })
          }
          
@@ -412,7 +435,7 @@
                                           <div class="input-group-prepend">
                                              <span class="input-group-text" id="basic-addon1">Case Number</span>
                                           </div>
-                                          <input type="text" class="form-control" aria-label="Username"
+                                          <input type="text" class="form-control" id="case-number" aria-label="Username"
                                              aria-describedby="basic-addon1" value="19" disabled>
                                        </div>
                                     </div>
@@ -425,7 +448,7 @@
                                           <div class="input-group-prepend">
                                              <span class="input-group-text" id="basic-addon1">Case Status</span>
                                           </div>
-                                          <input type="text" class="form-control" aria-label="Username"
+                                          <input type="text" id="case-status" class="form-control" aria-label="Username"
                                              aria-describedby="basic-addon1" value="Open" disabled>
                                        </div>
                                     </div>
@@ -451,7 +474,7 @@
                                           <div class="input-group-prepend">
                                              <span class="input-group-text">Full Name</span>
                                           </div>
-                                          <input type="text" aria-label="First name" class="form-control">
+                                          <input type="text" id="first-name" aria-label="First name" class="form-control">
                                           <input type="text" aria-label="Last name" class="form-control">
                                        </div>
                                     </div>
@@ -597,7 +620,7 @@
                                  </div>
                                  <div class="row">
                                     <div class="col-sm d-flex m-3">
-                                       <button type="button" class="btn btn-primary m-3" onclick="closeModal()">Submit</button>
+                                       <button type="button" class="btn btn-primary m-3" onclick="submit()">Submit</button>
                                        <!-- change to sumbit type-->
                                        <div class="custom-control custom-checkbox m-4">
                                           <input type="checkbox" class="custom-control-input" id="customCheck1">

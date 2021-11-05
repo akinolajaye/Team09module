@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+		<link rel="stylesheet" href="stylesheet.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<title>Make-It-All</title>
+	</head>
+	<body>
+		<script>
+			function myFunction() {
+			   // Declare variables
+			   searchFilter = document.getElementById("myFilter");
+			
+			   var input, filter, table, tr, td, i, txtValue;
+			   input = document.getElementById("myInput");
+			   filter = input.value.toUpperCase();
+			   table = document.getElementById("myTable");
+			   tr = table.getElementsByTagName("tr");
+			
+			   // Loop through all table rows, and hide those who don't match the search query
+			   for (i = 0; i < tr.length; i++) {
+			      td = tr[i].getElementsByTagName("td")[searchFilter.value];
+			      if (td) {
+			         txtValue = td.textContent || td.innerText;
+			         if (txtValue.toUpperCase().indexOf(filter) > -1) {
+			            tr[i].style.display = "";
+			         } else {
+			            tr[i].style.display = "none";
+			         }
+			      }
+			   }
+			}
+			
+			function test(id) {
+			   $(document).ready(function () {
+			
+			      var output = $("#opt2").val();
+			      console.log(output);
+			
+			      $("#problem_desc").val(output);
+			      $("#notes").val("Told caller to go to network settings and click forget network. Then proceed to enter network credentials again ");
+			
+			   })
+			}
+			
+			function getDate() {
+			
+			   // author: Jordan
+			   // gets current date with custom format: MMM D YYYY, HH:MM
+			
+			   $(document).ready(function () {
+			
+			      const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+			      var year = new Date().getFullYear().toString();
+			      var month = months[new Date().getMonth()];
+			      var day = new Date().getDate().toString();
+			      var hour = new Date().getHours().toString();
+			      var mins = new Date().getMinutes().toString();
+			
+			      if (hour < 10) // format time
+			         hour = '0' + hour;
+			      if (mins < 10)
+			         mins = '0' + mins;
+			   
+			       var today = month.substring(0, 3) + " " + day + " " + year + ", " + hour + ":" + mins;
+			       $("#call-date").val(today);
+			     })
+			   
+			   }
+			   
+			   function fill(destination, value) { 
+			     
+			     // author: Jordan
+			     // fills text field with value into input destination
+			   
+			     $(document).ready(function() {
+			       $(destination).val(value);
+			     })
+			   }
+			
+			   function submit() {
+			
+			      // author: Jordan
+			      // closes modal and adds problem to table
+			
+			      $(document).ready(function() {
+			
+			         $('#addnewprob').modal('hide');  // close modal
+			
+			         var caseNumber = $('#case-number').val(); // store input values
+			         var name = $('#first-name').val();
+			         var caseStatus = $('#case-status').val();
+			         caseStatus="Closed"
+			
+			         var today = new Date(); // date formatting
+			         var dd = today.getDate();
+			         var mm = today.getMonth()+1;
+			         var yyyy = today.getFullYear();
+			         if (dd < 10)
+			            dd = '0' + dd;
+			         if (mm < 10)
+			            mm = '0' + mm;
+			         today = dd + '/' + mm + '/' +yyyy;
+			
+			         var newRow = "<tr><td>" + caseNumber + // create row from inputs
+			                     "</td><td>" + name +
+			                     "</td><td>" + caseStatus +
+			                     "</td><td>" + today +
+			                     "</td><td><i class='bi bi-arrows-fullscreen'></i></td></tr>";
+			
+			         $('#myTable').append(newRow);
+			      })
+			   }
+			   
+			   getDate();
+		</script>
+		<!-- Nav Bar -->
+		<nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+			<a class="navbar-brand" href="#"><img src="logo.png" width="40" height="40"></a>
+			<h5><b>make-it-all</b></h5>
+			<ul class="nav navbar-nav mx-auto">
+				<li class="nav-item">
+					<select class="form-control form-control" id="myFilter" onclick="myFunction()">
+						<option value="0">Problem ID</option>
+						<option value="1">Caller Name</option>
+						<option value="2">Case Status</option>
+						<option value="3">Date</option>
+					</select>
+				</li>
+				<form class="form-inline my-2 my-lg-0">
+					<input class="form-control ml-sm-2" type="search" placeholder="Search" aria-label="Search" id="myInput" onkeyup="myFunction()">
+				</form>
+			</ul>
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" target="_blank" href="exampleLog.txt">View logs</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="login.html">Log out</a>
+				</li>
+			</ul>
+		</nav>
+		<!-- Filter Container-->
+		<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-2 border-right top">
+				<h6 id="filterHeader">FILTER BY</h6>
+				<hr>
+				<form>
+					<div class="form-group">
+						<label for="callerNameInput">Caller Name</label>
+						<input type="text" class="form-control" id="callerNameInput" placeholder="Caller Name">
+					</div>
+					<div class="form-group">
+						<label for="caseStatusSelect">Case Satus</label>
+						<select class="form-control" id="caseStatusSelect">
+							<option>Open</option>
+							<option>Closed</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="softwareSelect">Software Type</label>
+						<select class="form-control" id="softwareSelect">
+							<option>Windows</option>
+							<option>MacOS</option>
+							<option>Linux</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="hardwareSelect">Hardware Type</label>
+						<select class="form-control" id="hardwareSelect">
+							<option>PC</option>
+							<option>iMac</option>
+							<option>MacBook</option>
+							<option>iPad</option>
+							<option>iPhone</option>
+							<option>Android Mobile Phone</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="problemDescInput">Problem Description</label>
+						<input type="text" class="form-control" id="problemDescInput" placeholder="Problem description">
+					</div>
+					<div class="form-group">
+						<label for="specialistSelect">Assigned Specialist</label>
+						<select class="form-control" id="specialistSelect">
+							<option>John</option>
+							<option>James</option>
+							<option>Steve</option>
+							<option>Mary</option>
+							<option>Lisa</option>
+							<option>Emma</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="dateInput">Date</label>
+						<input type="text" class="form-control" id="dateInput" placeholder="DD/MM/YYY">
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" value="" id="urgentCheck">
+						<label class="form-check-label" for="defaultCheck1">
+						Urgent Problems
+						</label>
+					</div>
+				</form>
+			</div>
+			<!-- Data Container -->
+			<div class="col-md-10 bottom">
+				<!-- Nav Bar -->
+				<nav class="navbar navbar-expand-lg navbar-light tableOptions">
+					<ul class="navbar-nav mr-auto">
+						<li><b>Welcome Back, Alice</b></li>
+					</ul>
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item">
+							<button type="button" class="btn btn-secondary btn-sm" data-toggle="modal"
+								data-target="#addnewprob">+ Add new</button>
+						</li>
+						<li class="nav-item">
+							<button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-filter"></i>Sort By</button>
+						</li>
+					</ul>
+				</nav>
+				<div class="scrollTable scroll">
+					<table class="table table-hover dataTable" id="myTable">
+						<thead>
+							<tr>
+								<th scope="col">Problem ID</th>
+								<th scope="col">Caller Name</th>
+								<!-- <th scope="col">Software Type</th>
+									<th scope="col">Hardware Type</th> -->
+								<th scope="col">Case Status</th>
+								<th scope="col">Date Opened</th>
+								<th scope="col"> </th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>Mark</td>
+								<td>Open</td>
+								<td>11/03/2021</td>
+								<td><a data-toggle="modal" data-target="#problemModal"><i
+									class="bi bi-arrows-fullscreen"></i></a></td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>Jacob</td>
+								<td>Closed</td>
+								<td>12/03/2021</td>
+								<td><i class="bi bi-arrows-fullscreen"></i></td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>Larry</td>
+								<td>Closed</td>
+								<td>10/03/2021</td>
+								<td><i class="bi bi-arrows-fullscreen"></i></td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>Larry</td>
+								<td>Closed</td>
+								<td>10/03/2021</td>
+								<td><i class="bi bi-arrows-fullscreen"></i></td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>Larry</td>
+								<td>Closed</td>
+								<td>10/03/2021</td>
+								<td><i class="bi bi-arrows-fullscreen"></i></td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>Larry</td>
+								<td>Closed</td>
+								<td>10/03/2021</td>
+								<td><i class="bi bi-arrows-fullscreen"></i></td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>Larry</td>
+								<td>Closed</td>
+								<td>10/03/2021</td>
+								<td><i class="bi bi-arrows-fullscreen"></i></td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td>Larry</td>
+								<td>Closed</td>
+								<td>10/03/2021</td>
+								<td><i class="bi bi-arrows-fullscreen"></i></td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td>Larry</td>
+								<td>Closed</td>
+								<td>10/03/2021</td>
+								<td><i class="bi bi-arrows-fullscreen"></i></td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>Mark</td>
+								<td>Open</td>
+								<td>11/03/2021</td>
+								<td><i class="bi bi-arrows-fullscreen"></i></td>
+							</tr>
+							<tr>
+								<td>11</td>
+								<td>Jacob</td>
+								<td>Closed</td>
+								<td>12/03/2021</td>
+								<td><i class="bi bi-arrows-fullscreen"></i></td>
+							</tr>
+							<tr>
+								<td>12</td>
+								<td>Larry</td>
+								<td>Closed</td>
+								<td>10/03/2021</td>
+								<td><i class="bi bi-arrows-fullscreen"></i></td>
+							</tr>
+							<tr>
+								<td>13</td>
+								<td>Mark</td>
+								<td>Open</td>
+								<td>11/03/2021</td>
+								<td><i class="bi bi-arrows-fullscreen"></i></td>
+							</tr>
+							<tr>
+								<td>14</td>
+								<td>Jacob</td>
+								<td>Closed</td>
+								<td>12/03/2021</td>
+								<td><i class="bi bi-arrows-fullscreen"></i></td>
+							</tr>
+							<tr>
+								<td>15</td>
+								<td>Larry</td>
+								<td>Closed</td>
+								<td>10/03/2021</td>
+								<td><i class="bi bi-arrows-fullscreen"></i></td>
+							</tr>
+							<tr>
+								<td>16</td>
+								<td>Mark</td>
+								<td>Open</td>
+								<td>11/03/2021</td>
+								<td><i class="bi bi-arrows-fullscreen"></i></td>
+							</tr>
+							<tr>
+								<td>17</td>
+								<td>Jacob</td>
+								<td>Closed</td>
+								<td>12/03/2021</td>
+								<td><i class="bi bi-arrows-fullscreen"></i></td>
+							</tr>
+							<tr>
+								<td>18</td>
+								<td>Larry</td>
+								<td>Closed</td>
+								<td>10/03/2021</td>
+								<td><i class="bi bi-arrows-fullscreen"></i></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- Modal For Problem Info -->
+				<div class="modal fade problemInfo" id="problemModal" tabindex="-1" role="dialog"
+					aria-labelledby="problemModal" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLongTitle">Problem 1</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<ul>
+									<li><b>Caller Name:</b> Mark</li>
+									<li><b>Case Status:</b> Open</li>
+									<li><b>Software type:</b> MacOS</li>
+									<li><b>Hardware type:</b> MacBook</li>
+									<li><b>Problem description:</b> Screen switches off randomly.</li>
+									<li><b>Date Opened:</b> 11/03/2021</li>
+								</ul>
+								<hr>
+								<h5>Notes</h5>
+								<br>
+								<p>This would be where notes for a given problem are stored.</p>
+								<button class="btn btn-primary" type="button" data-toggle="collapse"
+									data-target="#collapseNoteInput" aria-expanded="false" aria-controls="collapseFilters">
+								+ Add Notes
+								</button>
+								<div class="collapse" id="collapseNoteInput">
+									<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-primary">Edit</button>
+								<button type="button" class="btn btn-primary">Submit</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Modal for Adding a new problem -->
+				<div class="modal fade" id="addnewprob" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+					aria-hidden="true">
+					<!-- modal container -->
+					<div class="modal-dialog modal-xl">
+						<div class="modal-content">
+							<div class="modal-header bg-warning">
+								<h5 class="modal-title" id="exampleModalLabel">Alice</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<div class="container-fluid">
+									<div class="parent-container d-flex  w-100 bg-light" id="parent">
+										<div class="container w-50 " id="inputproblem">
+											<div class="row">
+												<!-- case number field -->
+												<div class="col-sm ">
+													<div class="input-group mb-3">
+														<div class="input-group-prepend">
+															<span class="input-group-text" id="basic-addon1">Case Number</span>
+														</div>
+														<input type="text" class="form-control" id="case-number" aria-label="Username"
+															aria-describedby="basic-addon1" value="19" disabled>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<!-- case status field -->
+												<div class="col-sm ">
+													<div class="input-group mb-3">
+														<div class="input-group-prepend">
+															<span class="input-group-text" id="basic-addon1">Case Status</span>
+														</div>
+														<input type="text" id="case-status" class="form-control" aria-label="Username"
+															aria-describedby="basic-addon1" value="Open" disabled>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<!-- call date field -->
+												<div class="col-sm ">
+													<div class="input-group mb-3">
+														<div class="input-group-prepend">
+															<span class="input-group-text" id="basic-addon1">Call Date</span>
+														</div>
+														<input id="call-date" type="text" class="form-control" aria-label="Username"
+															aria-describedby="basic-addon1" value="" disabled>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<!-- full name field -->
+												<div class="col-sm ">
+													<div class="input-group mb-3">
+														<div class="input-group-prepend">
+															<span class="input-group-text">Full Name</span>
+														</div>
+														<input type="text" id="first-name" aria-label="First name" class="form-control">
+														<input type="text" aria-label="Last name" class="form-control">
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<!-- extension no. field -->
+												<div class="col-sm ">
+													<div class="input-group mb-3">
+														<div class="input-group-prepend">
+															<span class="input-group-text" id="basic-addon1">Extension Number</span>
+														</div>
+														<input type="text" class="form-control" aria-label="Username"
+															aria-describedby="basic-addon1">
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<!-- serial no. field -->
+												<div class="col-sm ">
+													<div class="input-group mb-3">
+														<div class="input-group-prepend">
+															<span class="input-group-text" id="basic-addon1">Serial Number</span>
+														</div>
+														<input type="text" class="form-control" aria-label="Username"
+															aria-describedby="basic-addon1">
+													</div>
+												</div>
+											</div>
+											<div class="input-group mb-3 ">
+												<!-- software type field -->
+												<div class="input-group-prepend">
+													<button class="btn btn-outline-primary dropdown-toggle" type="button"
+														data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Software
+													Type</button>
+													<div class="dropdown-menu ">
+														<button class="dropdown-item" type="button" value="Windows"
+															onclick="fill('#software-type',this.value)">Windows</button>
+														<button class="dropdown-item" type="button" value="macOS"
+															onclick="fill('#software-type',this.value)">macOS</button>
+														<button class="dropdown-item" type="button" value="Linux"
+															onclick="fill('#software-type',this.value)">Linux</button>
+													</div>
+												</div>
+												<input type="text" class="form-control " value=""
+													aria-label="Text input with dropdown button" id="software-type"
+													aria-describedby="default">
+											</div>
+											<div class="input-group mb-3 ">
+												<!-- hardware type field -->
+												<div class="input-group-prepend">
+													<button class="btn btn-outline-primary dropdown-toggle" type="button"
+														data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hardware
+													Type</button>
+													<div class="dropdown-menu ">
+														<button class="dropdown-item" type="button" value="Laptop"
+															onclick="fill('#hardware-type',this.value)">Laptop</button>
+														<button class="dropdown-item" type="button" value="PC"
+															onclick="fill('#hardware-type',this.value)">PC</button>
+														<button class="dropdown-item" type="button" value="Tablet"
+															onclick="fill('#hardware-type',this.value)">Tablet</button>
+													</div>
+												</div>
+												<input type="text" class="form-control " value=""
+													aria-label="Text input with dropdown button" id="hardware-type"
+													aria-describedby="default">
+											</div>
+											<div class="input-group mb-3 ">
+												<!-- hardware make field -->
+												<div class="input-group-prepend">
+													<button class="btn btn-outline-primary dropdown-toggle" type="button"
+														data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hardware
+													Make</button>
+													<div class="dropdown-menu ">
+														<button class="dropdown-item" type="button" value="Asus"
+															onclick="fill('#hardware-make',this.value)">Asus</button>
+														<button class="dropdown-item" type="button" value="HP"
+															onclick="fill('#hardware-make',this.value)">HP</button>
+														<button class="dropdown-item" type="button" value="Apple"
+															onclick="fill('#hardware-make',this.value)">Apple</button>
+													</div>
+												</div>
+												<input type="text" class="form-control " value=""
+													aria-label="Text input with dropdown button" id="hardware-make"
+													aria-describedby="default">
+											</div>
+											<div class="input-group mb-3 ">
+												<!-- problem type field -->
+												<div class="input-group-prepend">
+													<button class="btn btn-outline-primary dropdown-toggle" type="button"
+														data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Problem
+													Type</button>
+													<div class="dropdown-menu ">
+														<button class="dropdown-item" type="button" value="Software"
+															onclick="fill('#problem-type',this.value)">Software</button>
+														<button class="dropdown-item" type="button" value="Hardware"
+															onclick="fill('#problem-type',this.value)">Hardware</button>
+														<button class="dropdown-item" type="button" value="Network"
+															onclick="fill('#problem-type',this.value)">Network</button>
+													</div>
+												</div>
+												<input type="text" class="form-control " value=""
+													aria-label="Text input with dropdown button" id="problem-type"
+													aria-describedby="default">
+											</div>
+											<div class="row">
+												<div class="col-sm">
+													<button type="button" class="btn btn-primary">Assign Specialist</button>
+												</div>
+											</div>
+										</div>
+										<div class="container" id="notes_container">
+											<div class="row ">
+												<div class="col-sm ">
+													<div class="input-group mb-3 ">
+														<div class="input-group-prepend">
+															<button class="btn btn-outline-primary dropdown-toggle" type="button"
+																data-toggle="dropdown" aria-haspopup="true"
+																aria-expanded="false">Problem Description</button>
+															<div class="dropdown-menu ">
+																<!--<button class="dropdown-item" type="button" id="opt1" value="Printer not showing" onclick="test(this.id)">Printer not showing</button>-->
+																<button class="dropdown-item" type="button" id="opt2"
+																	value="Laptop not connecting to Wi-Fi" onclick="test(this.id)">Laptop
+																not connecting to Wi-Fi</button>
+																<!--<button class="dropdown-item" type="button" id="opt3" value="VPN log on not working" onclick="test(this.id)">VPN log on not working</button>-->
+															</div>
+														</div>
+														<input type="text" class="form-control "
+															aria-label="Text input with dropdown button" id="problem_desc"
+															aria-describedby="default">
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm">
+													<textarea class="form-control" id="notes" rows="5"></textarea>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm d-flex m-3">
+													<button type="button" class="btn btn-primary m-3" onclick="submit()">Resolve</button>
+													<!-- change to sumbit type-->
+													<div class="custom-control custom-checkbox m-4">
+														<input type="checkbox" class="custom-control-input" id="customCheck1">
+														<label class="custom-control-label" for="customCheck1">Add to previous
+														fixes</label>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+			crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+			crossorigin="anonymous"></script>
+	</body>
+</html>

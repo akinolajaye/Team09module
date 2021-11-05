@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login | MakeItAll</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="mb-3">
+                    <img src="logo.png" width="40" height="40" class="float-left"> 
+                    <h3> &ensp;Login </h3>
+                </div>
+                <form accept="" class="shadow p-4">                  
+                    <div class="mb-3">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" name="username" id="username" placeholder="Username">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Password">Password</label>
+                        <input type="password" class="form-control" name="password" id="Password" placeholder="Password">
+                    </div>
+                    <div class="mb-3">
+						<!-- Two buttons used for the time being as php needed for other method
+							 Javascript to direct different users does not work either
+							 I have tried using:
+								> window.location.href = ...
+								> window.location = ...
+							 
+							 ~ Alan
+							 !!! -->
+                        <button type="submit" class="btn btn-block btn-warning"><a href="operator.html">Login as Operator</button>
+						<button type="submit" class="btn btn-block btn-warning"><a href="specialist.html">Login as Specialist</button>
+                    </div>
+                    <hr>
+                    <p class="text-center mb-0"><a href="manageUsers.html" style="color: orange">Manage Users</a></p>
+                </form>
+            </div>
+        </div>
+    </div>      
+</body>    
+</html>

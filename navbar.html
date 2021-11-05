@@ -86,6 +86,16 @@
              $(destination).val(value);
            })
          }
+
+         function closeModal() {
+
+            // author: Jordan
+            // closes modal and submits form data
+
+            $(document).ready(function() {
+               $('#addnewprob').modal('hide');
+            })
+         }
          
          getDate();
       </script>
@@ -587,7 +597,7 @@
                                  </div>
                                  <div class="row">
                                     <div class="col-sm d-flex m-3">
-                                       <button type="button" class="btn btn-primary m-3">Submit</button>
+                                       <button type="button" class="btn btn-primary m-3" onclick="closeModal()">Submit</button>
                                        <!-- change to sumbit type-->
                                        <div class="custom-control custom-checkbox m-4">
                                           <input type="checkbox" class="custom-control-input" id="customCheck1">

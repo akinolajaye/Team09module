@@ -1,3 +1,8 @@
+body{
+    background-image: url("bg.png");
+    background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 
 .top {
     background-color: white;
@@ -45,6 +50,29 @@
 #filterHeader {
     padding-top: 3rem;
 }
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card i{
+    font-size: 2rem;
+    color: #ff781f;
+}
+
+.card:hover h5{
+    color: #ff781f;
+}
+
+.card {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+a:link { text-decoration: none;}
+a:visited { text-decoration: none; }
+a:hover { text-decoration: none; }
+a:active { text-decoration: none; }
 
 .problemInfo {
 

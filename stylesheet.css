@@ -1,7 +1,7 @@
 body{
     background-image: url("bg.png");
     background-repeat: no-repeat;
-  background-attachment: fixed;
+    background-attachment: fixed;
 }
 
 .top {
@@ -69,7 +69,8 @@ body{
     transition: transform 0.2s ease;
 }
 
-a:link { text-decoration: none;}
+a:link { text-decoration: none;
+color: black;}
 a:visited { text-decoration: none; }
 a:hover { text-decoration: none; }
 a:active { text-decoration: none; }

@@ -264,7 +264,8 @@
                         <td>Larry</td>
                         <td>Closed</td>
                         <td>10/03/2021</td>
-                        <td><i class="bi bi-arrows-fullscreen"></i></td>
+                        <td><a data-toggle="modal" data-target="#larryprob"><i
+                           class="bi bi-arrows-fullscreen"></i></a></td>
                      </tr>
                      <tr>
                         <td>4</td>
@@ -397,7 +398,7 @@
                         <hr>
                         <h5>Notes</h5>
                         <br>
-                        <p>This would be where notes for a given problem are stored.</p>
+                        <p>Told Larry to order a new battery for his laptop</p>
                         <button class="btn btn-primary" type="button" data-toggle="collapse"
                            data-target="#collapseNoteInput" aria-expanded="false" aria-controls="collapseFilters">
                            + Add Notes
@@ -413,6 +414,45 @@
                   </div>
                </div>
             </div>
+
+            <div class="modal fade problemInfo" id="larryprob" tabindex="-1" role="dialog"
+               aria-labelledby="problemModal" aria-hidden="true">
+               <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Problem 3</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                        </button>
+                     </div>
+                     <div class="modal-body">
+                        <ul>
+                           <li><b>Caller Name:</b> Larry</li>
+                           <li><b>Case Status:</b> Closed</li>
+                           <li><b>Software type:</b> MacOS</li>
+                           <li><b>Hardware type:</b> MacBook</li>
+                           <li><b>Problem description:</b> Screen switches off randomly.</li>
+                           <li><b>Date Opened:</b> 10/03/2021</li>
+                        </ul>
+                        <hr>
+                        <h5>Notes</h5>
+                        <br>
+                        <p>Told Larry to order a new battery for his laptop</p>
+                        <button class="btn btn-primary" type="button" data-toggle="collapse"
+                           data-target="#collapseNoteInput" aria-expanded="false" aria-controls="collapseFilters">
+                           + Add Notes
+                        </button>
+                        <div class="collapse" id="collapseNoteInput">
+                           <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                     </div>
+                     <div class="modal-footer">
+					    <button type="button" class="btn btn-primary">Edit</button>
+                        <button type="button" class="btn btn-primary">Submit</button>
+                     </div>
+                  </div>
+               </div>
+            </div>            
             <!-- Modal for Adding a new problem -->
             <div class="modal fade" id="addnewprob" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                aria-hidden="true">

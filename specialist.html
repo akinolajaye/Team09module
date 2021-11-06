@@ -36,6 +36,25 @@
              }
            }
          }
+
+
+
+         function deleterow() {
+
+            $(document).ready(function() {
+
+             
+   
+               $("#larry").html("");  // close modal
+
+
+
+
+            });
+         }
+
+
+
          
          function test(id) {
            $(document).ready(function() {
@@ -203,10 +222,10 @@
                   </thead>
                   <tbody>
                      
-                     <tr>
+                     <tr id="larry">
                         <td>3</td>
                         <td>Larry</td>
-                        <td>Open</td>
+                        <td id="status">Open</td>
                         <td>10/03/2021</td>
                         <td><a data-toggle="modal" data-target="#problemModal"><i class="bi bi-arrows-fullscreen"></i></a></td>
                      </tr>
@@ -278,162 +297,12 @@
                         </div>
                      </div>
                      <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-primary" onclick="deleterow()" data-dismiss="modal">Resolve</button>
                      </div>
                   </div>
                </div>
             </div>
             <!-- Modal for Adding a new problem -->
-            <div class="modal fade" id="addnewprob" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-               <!-- modal container -->
-               <div class="modal-dialog modal-xl"  >
-                  <div class="modal-content">
-                     <div class="modal-header bg-warning">
-                        <h5 class="modal-title" id="exampleModalLabel">Alice</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                     </div>
-                     <div class="modal-body">
-                        <div class="container-fluid">
-                           <div class="parent-container d-flex  w-100 bg-light" id="parent">
-                              <div class="container w-50 " id="inputproblem" >
-                                 <div class="row">
-                                    <!-- case number field -->
-                                    <div class="col-sm ">
-                                       <div class="input-group mb-3">
-                                          <div class="input-group-prepend">
-                                             <span class="input-group-text" id="basic-addon1">Case Number</span>
-                                          </div>
-                                          <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" value="57" disabled >
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="row">
-                                    <!-- case status field -->
-                                    <div class="col-sm ">
-                                       <div class="input-group mb-3">
-                                          <div class="input-group-prepend">
-                                             <span class="input-group-text" id="basic-addon1">Case Status</span>
-                                          </div>
-                                          <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" value="Open" disabled >
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="row">
-                                    <!-- call date field -->
-                                    <div class="col-sm ">
-                                       <div class="input-group mb-3">
-                                          <div class="input-group-prepend">
-                                             <span class="input-group-text" id="basic-addon1">Call Date</span>
-                                          </div>
-                                          <input id="call-date" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" value="" disabled>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="row">
-                                    <!-- full name field -->
-                                    <div class="col-sm ">
-                                       <div class="input-group mb-3">
-                                          <div class="input-group-prepend">
-                                             <span class="input-group-text">Full Name</span>
-                                          </div>
-                                          <input type="text" aria-label="First name" class="form-control">
-                                          <input type="text" aria-label="Last name" class="form-control">
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="row">
-                                    <!-- extension no. field -->
-                                    <div class="col-sm ">
-                                       <div class="input-group mb-3">
-                                          <div class="input-group-prepend">
-                                             <span class="input-group-text" id="basic-addon1">Extension Number</span>
-                                          </div>
-                                          <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="input-group mb-3 ">
-                                    <!-- software type field -->
-                                    <div class="input-group-prepend">
-                                       <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Software Type</button>
-                                       <div class="dropdown-menu " >
-                                          <button class="dropdown-item" type="button" value="Windows" onclick="fill('#software-type',this.value)">Windows</button>                    
-                                          <button class="dropdown-item" type="button" value="macOS" onclick="fill('#software-type',this.value)">macOS</button>               
-                                          <button class="dropdown-item" type="button" value="Linux" onclick="fill('#software-type',this.value)">Linux</button>                  
-                                       </div>
-                                    </div>
-                                    <input type="text" class="form-control " value="" aria-label="Text input with dropdown button" id="software-type" aria-describedby="default">
-                                 </div>
-                                 <div class="input-group mb-3 ">
-                                    <!-- hardware type field -->
-                                    <div class="input-group-prepend">
-                                       <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hardware Type</button>
-                                       <div class="dropdown-menu " >
-                                          <button class="dropdown-item" type="button" value="Asus Laptop" onclick="fill('#hardware-type',this.value)">Asus Laptop</button>                    
-                                          <button class="dropdown-item" type="button" value="HP Laptop" onclick="fill('#hardware-type',this.value)">HP Laptop</button>               
-                                          <button class="dropdown-item" type="button" value="Macbook" onclick="fill('#hardware-type',this.value)">Macbook</button>                  
-                                       </div>
-                                    </div>
-                                    <input type="text" class="form-control " value="" aria-label="Text input with dropdown button" id="hardware-type" aria-describedby="default">
-                                 </div>
-                                 <div class="input-group mb-3 ">
-                                    <!-- problem type field -->
-                                    <div class="input-group-prepend">
-                                       <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Problem Type</button>
-                                       <div class="dropdown-menu " >
-                                          <button class="dropdown-item" type="button" value="Software" onclick="fill('#problem-type',this.value)">Software</button>                    
-                                          <button class="dropdown-item" type="button" value="Hardware" onclick="fill('#problem-type',this.value)">Hardware</button>               
-                                          <button class="dropdown-item" type="button" value="Network" onclick="fill('#problem-type',this.value)">Network</button>                  
-                                       </div>
-                                    </div>
-                                    <input type="text" class="form-control " value="" aria-label="Text input with dropdown button" id="problem-type" aria-describedby="default">
-                                 </div>
-                                 <div class="row">
-                                    <div class="col-sm">
-                                       <button type="button" class="btn btn-primary">Assign Specialist</button>  
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="container" id="notes_container" >
-                                 <div class="row ">
-                                    <div class="col-sm ">
-                                       <div class="input-group mb-3 ">
-                                          <div class="input-group-prepend">
-                                             <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Problem Description</button>
-                                             <div class="dropdown-menu " >
-                                                <!--<button class="dropdown-item" type="button" id="opt1" value="Printer not showing" onclick="test(this.id)">Printer not showing</button>-->
-                                                <button class="dropdown-item" type="button" id="opt2" value="Laptop not connecting to Wi-Fi" onclick="test(this.id)">Laptop not connecting to Wi-Fi</button>
-                                                <!--<button class="dropdown-item" type="button" id="opt3" value="VPN log on not working" onclick="test(this.id)">VPN log on not working</button>-->
-                                             </div>
-                                          </div>
-                                          <input type="text" class="form-control "  aria-label="Text input with dropdown button" id="problem_desc" aria-describedby="default">
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="row">
-                                    <div class="col-sm">
-                                       <textarea class="form-control" id="notes"  rows="5"></textarea>
-                                    </div>
-                                 </div>
-                                 <div class="row">
-                                    <div class="col-sm d-flex m-3">
-                                       <button type="button" class="btn btn-primary m-3 " >Resolve</button>  
-                                       <button type="button" class="btn btn-primary m-3" >Submit</button>  <!-- change to sumbit type-->
-                                       <div class="custom-control custom-checkbox m-4">
-                                          <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                          <label class="custom-control-label" for="customCheck1">Add to previous fixes</label>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
          </div>
       </div>
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

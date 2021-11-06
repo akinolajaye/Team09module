@@ -14,10 +14,16 @@
         $(document).ready(function() {
 
             var username = $("#username").val().toLowerCase();
-            if (username === "alice")
+            var password = $("#password").val();
+            if (username === "alice" && password === "12345")
                 window.open("landing.html", "_self");
-            if (username === "clara")
+            else if (username === "clara" && password === "12345"){
                 window.open("specialist.html", "_self");
+            } else {
+                alert("Incorrect username or password!");
+            }
+                
+            
         })
     }
 
@@ -41,7 +47,7 @@
     
                     <div class="mb-3">
                         <label for="Password">Password</label>
-                        <input type="password" class="form-control" name="password" id="Password" value="12345" placeholder="Password">
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Password">
                     </div>
     
                     <div class="mb-3">

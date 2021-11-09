@@ -117,9 +117,44 @@
                            "</td><td>" + today +
                            "</td><td><i class='bi bi-arrows-fullscreen'></i></td></tr>";
 
-               $('#myTable').append(newRow);
+               $('#myTable').prepend(newRow);
             })
          }
+
+         function assign() {
+
+// author: Jaye
+// closes modal and adds problem to table
+
+            $(document).ready(function() {
+
+               $('#addnewprob').modal('hide');  // close modal
+
+               var caseNumber = $('#case-number').val(); // store input values
+               var name = $('#first-name').val();
+               var caseStatus = $('#case-status').val();
+               caseStatus="Open"
+
+               var today = new Date(); // date formatting
+               var dd = today.getDate();
+               var mm = today.getMonth()+1;
+               var yyyy = today.getFullYear();
+               if (dd < 10)
+                  dd = '0' + dd;
+               if (mm < 10)
+                  mm = '0' + mm;
+               today = dd + '/' + mm + '/' +yyyy;
+
+               var newRow = "<tr><td>" + caseNumber + // create row from inputs
+                           "</td><td>" + name +
+                           "</td><td>" + caseStatus +
+                           "</td><td>" + today +
+                           "</td><td><i class='bi bi-arrows-fullscreen'></i></td></tr>";
+
+               $('#myTable').prepend(newRow);
+            })
+            }
+                     
          
          getDate();
       </script>
@@ -627,7 +662,7 @@
                                  </div>
                                  <div class="row">
                                     <div class="col-sm">
-                                       <button type="button" class="btn btn-primary">Assign Specialist</button>
+                                       <button type="button" class="btn btn-primary"onclick="assign()">Assign Specialist</button>
                                     </div>
                                  </div>
                               </div>

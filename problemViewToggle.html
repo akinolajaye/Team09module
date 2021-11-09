@@ -45,7 +45,7 @@
             }
          }
       }
-
+	
       function test(id) {
          $(document).ready(function () {
 
@@ -58,6 +58,17 @@
          })
       }
 
+		function getLastID() {
+			$(document).ready(function () {
+				table = document.getElementById("myTable");
+				tr = table.getElementsByTagName("tr");
+				var lastID = tr.length;
+				console.log(lastID);
+				
+				$("#case-number").val(lastID);
+			})
+		}
+		
       function getDate() {
 
          // author: Jordan
@@ -161,7 +172,7 @@
             })
             }
                      
-         
+         getLastID();
          getDate();
       </script>
       <!-- Nav Bar -->
@@ -264,7 +275,7 @@
                <ul class="navbar-nav ml-auto">
                   <li class="nav-item">
                      <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal"
-                        data-target="#addnewprob">+ Add new</button>
+                        data-target="#addnewprob" onclick="getLastID()">+ Add new</button>
                   </li>
                   <li class="nav-item">
                      <button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-filter"></i>Sort By</button>
@@ -517,7 +528,7 @@
                                              <span class="input-group-text" id="basic-addon1">Case ID</span>
                                           </div>
                                           <input type="text" class="form-control" id="case-number" aria-label="Username"
-                                             aria-describedby="basic-addon1" value="19" disabled>
+                                             aria-describedby="basic-addon1" value="" disabled>
                                        </div>
                                     </div>
                                  </div>

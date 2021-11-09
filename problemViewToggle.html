@@ -135,6 +135,16 @@
                            "</td><td><i class='bi bi-arrows-fullscreen'></i></td></tr>";
 
                $('#myTable').prepend(newRow);
+
+               $('#addnewprob').on('hidden.bs.modal', function (e) {
+               $(this)
+                  .find("input,textarea,select")
+                     .val('')
+                     .end()
+                  .find("input[type=checkbox], input[type=radio]")
+                     .prop("checked", "")
+                     .end();
+               });
             })
          }
 
@@ -169,6 +179,16 @@
                            "</td><td><i class='bi bi-arrows-fullscreen'></i></td></tr>";
 
                $('#myTable').prepend(newRow);
+
+               $('#addnewprob').on('hidden.bs.modal', function (e) {
+               $(this)
+                  .find("input,textarea,select")
+                     .val('')
+                     .end()
+                  .find("input[type=checkbox], input[type=radio]")
+                     .prop("checked", "")
+                     .end();
+               });
             })
             }
                      
